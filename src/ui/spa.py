@@ -72,13 +72,22 @@ if "selected_topic" not in st.session_state:
 # -----------------------------
 # Reset quiz
 # -----------------------------
+
+def clear_answers():
+ keys_to_remove = [
+  key for key in st.session_state.keys()
+  if key.startswith("answer_")
+ ]
+
+ for key in keys_to_remove:
+  del st.session_state[key]
+
 def reset_quiz():
  st.session_state.questions = shuffle_questions()
  st.session_state.submitted = False
  st.session_state.selected_topic = None
 
- for i in range(1, 500):
-  st.session_state.pop(f"answer_{i}", None)
+ clear_answers()
 
 # -----------------------------
 # Show all questions
