@@ -50,7 +50,7 @@ TOPICS_DICTIONARY = {
 # -----------------------------
 @st.cache_data(ttl=600)
 def get_questions():
- return conn.table("questions").select("*").execute().data
+ return conn.table("questions").select("*").limit(90).execute().data
 
 def shuffle_questions():
  data = get_questions()
