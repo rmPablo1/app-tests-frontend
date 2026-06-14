@@ -270,6 +270,7 @@ def render_question_card(q, i):
   list(options.keys()),
   format_func=lambda x: f"{x}: {options[x]}",
   key=f"q_{i}",
+  index=None,
   label_visibility="collapsed"
  )
 
